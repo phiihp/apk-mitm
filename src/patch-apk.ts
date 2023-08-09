@@ -30,16 +30,6 @@ export default function patchApk(options: TaskOptions) {
       task: () => apktool.decode(options.inputPath, decodeDir),
     },
     {
-      title: 'Applying patches',
-      skip: () => options.skipPatches,
-      task: () =>
-        applyPatches(decodeDir, {
-          debuggable: options.debuggable,
-          certificatePath: options.certificatePath,
-          mapsApiKey: options.mapsApiKey,
-        }),
-    },
-    {
       title: 'Waiting for you to make changes',
       enabled: () => options.wait,
       task: () =>
@@ -52,6 +42,16 @@ export default function patchApk(options: TaskOptions) {
 
           process.stdin.setRawMode!(false)
           process.stdin.pause()
+        }),
+    },
+    {
+      title: 'Applying patches',
+      skip: () => options.skipPatches,
+      task: () =>
+        applyPatches(decodeDir, {
+          debuggable: options.debuggable,
+          certificatePath: options.certificatePath,
+          mapsApiKey: options.mapsApiKey,
         }),
     },
     {
