@@ -1,5 +1,7 @@
 # apk-mitm
 
+> https://github.com/iBotPeaches/Apktool/issues/3129#issuecomment-1652345057
+
 > A CLI application that automatically prepares Android APK files for HTTPS inspection
 
 [![](https://img.shields.io/npm/v/apk-mitm?style=flat-square)](https://www.npmjs.com/package/apk-mitm)
